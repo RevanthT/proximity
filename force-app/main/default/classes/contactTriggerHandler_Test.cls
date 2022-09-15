@@ -3,7 +3,8 @@ public class contactTriggerHandler_Test{
     
     public static List<contact> conList;
     
-    public static void testData(){
+    @isTest
+    public static void test_afterInsert(){
         Account acc = new Account();
             acc.Name = 'Test Account';
         insert acc;
@@ -22,12 +23,5 @@ public class contactTriggerHandler_Test{
         }
         if( conList.size() > 0 )
             insert conList;
-    }
-    
-    @isTest
-    public static void test_afterInsert(){
-        testData();
-        contactTriggerHandler ct = new contactTriggerHandler();
-        ct.afterInsert(conList);
     }
 }
